@@ -1,0 +1,55 @@
+
+<meta charset="UTF-8">
+<title> Qual combustível você deve utilizar no seu carro, Álcool ou Gasolina?</title>
+<h2> Qual combustível você deve utilizar no seu carro, Álcool ou Gasolina? </h2>
+1. Preencha o preço da Gasolina:
+<input class="precoGasolina" type="text">
+<br>
+2. Preencha o preço do Álcool:
+<input class="precoAlcool" type="text">
+<label> 
+<br>
+3. Quantos kilometrôs seu veículo faz com 1 litro de GASOLINA?(Caso não saiba, a resposta da 3 ou 4 deixar resposta em branco e pule para questão 5)
+<input class="KmGasolina" type="text">
+<br>
+4. Quantos kilometrôs seu veículo faz com 1 litro de ÁLCOOL?(Caso não saiba, a resposta da 3 ou 4 deixar resposta em branco e pule para questão 5)
+<input class="KmAlcool" type="text">
+<br>
+5.Você respondeu as questões 3 e 4? </label>
+<button onclick="sim()">SIM</button>
+<button onclick="não()">NÃO</button>
+<br>
+<script>
+	function sim (){
+	var consumoGasolina = parseFloat(document.querySelector(".KmGasolina").value);
+	var consumoAlcool = parseFloat(document.querySelector(".KmAlcool").value);
+	var precoAlcool= parseFloat(document.querySelector(".precoAlcool").value);
+	var precoGasolina = parseFloat(document.querySelector(".precoGasolina").value);
+var percentualDeKmDoAlcoolEmRelacaoGasolina = parseFloat((consumoAlcool/consumoGasolina)*100);
+var percentualprecoAlccolEmRelacaoGasolina = parseFloat((precoAlcool/precoGasolina)*100);
+if (percentualprecoAlccolEmRelacaoGasolina>percentualDeKmDoAlcoolEmRelacaoGasolina) {
+	document.write("<h3>Utilize Gasolina</h3><br><br><br>Com base nos valores que você informou o percentual de km do álcool em relação a km gasolina é de "+(percentualDeKmDoAlcoolEmRelacaoGasolina)+"% sendo assim, para que seja viavel o abastecimento de álcool, o preço do álcool deve ser "+(100-(percentualDeKmDoAlcoolEmRelacaoGasolina))+"% menor que o da gasolina, como esse percentual não foi alcançado,indicamos que você utilize gasolina.");
+}
+if (percentualprecoAlccolEmRelacaoGasolina<percentualDeKmDoAlcoolEmRelacaoGasolina) {
+	document.write("<h3>Utilize Álcool</h3><br><br><br>Com base nos valores que você informou o percentual de km do álcool em relação a km gasolina é de "+(percentualDeKmDoAlcoolEmRelacaoGasolina)+"% sendo assim, para que seja viavel o abastecimento de álcool, o preço do álcool deve ser "+(100-(percentualDeKmDoAlcoolEmRelacaoGasolina))+"% menor que o da gasolina, como esse percentual foi alcançado,indicamos que você utilize álcool.");
+}
+if (percentualprecoAlccolEmRelacaoGasolina==percentualDeKmDoAlcoolEmRelacaoGasolina) {
+	document.write("<h3>Utilize Álcool ou Gasolina, nesse caso tanto faz.</h3><br><br><br>Com base nos valores que você informou o percentual de km do álcool em relação a km gasolina é de "+(percentualDeKmDoAlcoolEmRelacaoGasolina)+"% sendo assim, não há diferença se você utilizar alcool ou gasolina.");
+};
+}
+function não (){
+	var precoAlcool= parseFloat(document.querySelector(".precoAlcool").value);
+	var precoGasolina = parseFloat(document.querySelector(".precoGasolina").value);
+var percentualDeKmDoAlcoolEmRelacaoGasolina = parseFloat(70);
+var percentualprecoAlccolEmRelacaoGasolina = parseFloat((precoAlcool/precoGasolina)*100);
+if (percentualprecoAlccolEmRelacaoGasolina>percentualDeKmDoAlcoolEmRelacaoGasolina) {
+	document.write("<h3>Utilize Gasolina</h3><br><br><br>Com base nos valores médios de consumo geral dos carros o percentual de km do álcool em relação a km gasolina é de "+(percentualDeKmDoAlcoolEmRelacaoGasolina)+"% sendo assim, para que seja viavel o abastecimento de álcool, o preço do álcool deve ser "+(100-(percentualDeKmDoAlcoolEmRelacaoGasolina))+"% menor que o da gasolina, como esse percentual não foi alcançado,indicamos que você utilize gasolina.");
+}
+if (percentualprecoAlccolEmRelacaoGasolina<percentualDeKmDoAlcoolEmRelacaoGasolina) {
+	document.write("<h3>Utilize Álcool</h3><br><br><br>Com base nos valores médios de consumo geral dos carros o percentual de km do álcool em relação a km gasolina é de "+(percentualDeKmDoAlcoolEmRelacaoGasolina)+"% sendo assim, para que seja viavel o abastecimento de álcool, o preço do álcool deve ser "+(100-(percentualDeKmDoAlcoolEmRelacaoGasolina))+"% menor que o da gasolina, como esse percentual foi alcançado,indicamos que você utilize álcool.");
+}
+if (percentualprecoAlccolEmRelacaoGasolina==percentualDeKmDoAlcoolEmRelacaoGasolina) {
+	document.write("<h3>Utilize Álcool ou Gasolina, nesse caso tanto faz.</h3><br><br><br>Com base nos valores médios de consumo geral dos carros o percentual de km do álcool em relação a km gasolina é de "+(percentualDeKmDoAlcoolEmRelacaoGasolina)+"% sendo assim, não há diferença se você utilizar álcool ou gasolina.");
+};
+}
+</script>
